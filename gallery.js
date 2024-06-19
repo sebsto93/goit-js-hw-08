@@ -97,20 +97,14 @@ images.forEach((image) => {
   gallery.appendChild(galleryItem);
 });
 
-
 gallery.addEventListener("click", (event) => {
   event.preventDefault();
-  if(event.target.classList.contains("gallery-image")) {
+  if (event.target.classList.contains("gallery-image")) {
     const largeImageSrc = event.target.dataset.source;
     console.log("Link do dużego obrazu:", largeImageSrc);
     const instance = basicLightbox.create(`
       <img src="${largeImageSrc}" alt="${event.target.alt}">
       `);
-      instance.show();
+    instance.show();
   }
 });
-
-
-
-
-
