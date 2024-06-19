@@ -105,3 +105,4 @@ gallery.addEventListener("click", (event) => {
     console.log("Link do dużego obrazu:", largeImageSrc);
   }
 });
+
