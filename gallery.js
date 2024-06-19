@@ -96,3 +96,12 @@ images.forEach((image) => {
   const galleryItem = generateGalleryItem(image);
   gallery.appendChild(galleryItem);
 });
+
+
+gallery.addEventListener("click", (event) => {
+  event.preventDefault();
+  if(event.target.classList.contains("gallery-image")) {
+    const largeImageSrc = event.target.dataset.source;
+    console.log("Link do dużego obrazu:", largeImageSrc);
+  }
+});
