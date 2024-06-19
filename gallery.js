@@ -97,14 +97,32 @@ images.forEach((image) => {
   gallery.appendChild(galleryItem);
 });
 
+
+let instance = null;
+
+
 gallery.addEventListener("click", (event) => {
   event.preventDefault();
   if (event.target.classList.contains("gallery-image")) {
     const largeImageSrc = event.target.dataset.source;
-    console.log("Link do dużego obrazu:", largeImageSrc);
-    const instance = basicLightbox.create(`
+    const description = event.target.alt;
+
+    instance = basicLightbox.create(`
       <img src="${largeImageSrc}" alt="${event.target.alt}">
       `);
     instance.show();
+
+    document.addEventListener("keydown", useEscKeyDown);
   }
 });
+
+function useEscKeyDown(event) {
+  if (event.key === "Escape") {
+    if (instance){
+      instance.close();
+      instance = null;
+    }
+    
+    document.removeEventListener("keydown", useEscKeyDown);
+  }
+}
