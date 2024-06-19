@@ -103,6 +103,14 @@ gallery.addEventListener("click", (event) => {
   if(event.target.classList.contains("gallery-image")) {
     const largeImageSrc = event.target.dataset.source;
     console.log("Link do dużego obrazu:", largeImageSrc);
+    const instance = basicLightbox.create(`
+      <img src="${largeImageSrc}" alt="${event.target.alt}">
+      `);
+      instance.show();
   }
 });
+
+
+
+
 
